@@ -3,7 +3,7 @@ import mysql.connector
 from mysql.connector import errorcode
 from mock import patch
 import utils
-
+import main
 import MySQLOperation
 
 
@@ -27,3 +27,18 @@ class MockDB(TestCase):
         print("\n Tear Down \n")
         pass
     
+    @patch('main.mysql.connector.connect', spec_set=True, autospec=True)
+    def test_insert_user(self, mock_connect):
+        username = "dummy"
+        password = "dummy"
+
+        mock_connect.side_effect = Error(
+            errno=errorcode.ER_ACCESS_DENIED_ERROR
+        )
+        with self.assertRaise(SystemExit):
+            with MySQLOperation(username, password):
+                pass
+
+        with self.assertEqual(True):
+            with MySQLOperation(username, password):
+                pass
