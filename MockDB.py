@@ -1,11 +1,11 @@
 from unittest import TestCase
-import mysql.connector
 from mysql.connector import errorcode, Error
 from mock import patch
-import utils
-import main
-import MySQLOperation
 
+import unittest
+import mysql.connector
+
+import main
 
 class MockDB(TestCase):
 
@@ -35,10 +35,13 @@ class MockDB(TestCase):
         mock_connect.side_effect = Error(
             errno=errorcode.ER_ACCESS_DENIED_ERROR
         )
-        with self.assertRaise(False):
-            with MySQLOperation(username, password):
+        with self.assertEqual(False):
+            with main.MySQLOperation(username, password):
                 pass
 
         with self.assertEqual(True):
-            with MySQLOperation(username, password):
+            with main.MySQLOperation(username, password):
                 pass
+
+if __name__ == '__main__':
+    unittest.main()
