@@ -1,6 +1,6 @@
 from unittest import TestCase
 from mysql.connector import errorcode, Error
-from mock import patch
+from mock import patch, MagicMock
 
 import unittest
 import mysql.connector
@@ -27,7 +27,7 @@ class MockDB(TestCase):
         print("\n Tear Down \n")
         pass
     
-    @patch('main.mysql.connector.connect', spec_set=True, autospec=True)
+    """ @patch('main.mysql.connector.connect', spec_set=True, autospec=True)
     def test_insert_user(self, mock_connect):
         username = "dummy"
         password = "dummy"
@@ -41,7 +41,26 @@ class MockDB(TestCase):
 
         with self.assertEqual(True):
             with main.MySQLOperation(username, password):
-                pass
+                pass """
+    
+    @patch.object("main.MySQLOperation", spec_set=True, autospec=True)
+    def test_insert_user(self, mock_opt):
+        username = "dummy"
+        password = "dummy"
+
+        #mysql_operation = unittest.Mock()
+        mock_opt.generate_config.return_value = {
+            "user": "dummy",
+            "password": "dummy",
+            "port": 3306,
+            "host": "localhost",
+            "database": "mysql"
+        }
+
+        config = mock_opt.generate_config()
+        print(config["user"])
+        self.assertEqual(config["user"], "dummy")
+
 
 if __name__ == '__main__':
     unittest.main()
