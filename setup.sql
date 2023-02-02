@@ -1,5 +1,5 @@
-CREATE USER inno@localhost IDENTIFIED BY 'inno';
+CREATE USER 'clusteradmin'@'%' IDENTIFIED BY 'cladmin';
 
-GRANT ALL privileges ON *.* TO inno@localhost with grant option;
+GRANT ALL privileges ON *.* TO 'clusteradmin'@'%' with grant option;
 
 FLUSH PRIVILEGES;
