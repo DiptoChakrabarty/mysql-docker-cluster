@@ -2,6 +2,8 @@
 
 Setup a three node mysql innodb cluster using docker containers in any system.
 
+To know detailed steps you can [check this blog - Setting Mysql cluster using docker](https://diptochakrabarty.medium.com/f0e405d03762)
+
 ![mysql cluster](proper-cluster.png)
 
 ## Steps to run
