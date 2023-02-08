@@ -5,15 +5,6 @@ services:
       command: --default-authentication-plugin=mysql_native_password
       environment:
         MYSQL_ROOT_PASSWORD: password
-        MYSQL_DATABASE: test_db
-      # command:
-      #   - /bin/bash
-      #   - -c
-      #   - |
-      #     mysql -uroot -ppassword \
-      #     -e "CREATE USER 'inno@%' IDENIFIED BY 'inno';" \
-      #     -e "GRANT ALL privileges ON *.* TO 'inno'@'%' with grant option;" \
-      #     -e "reset master;"
       volumes:
       - ./db-data1:/var/lib/mysql
       ports:
@@ -24,15 +15,6 @@ services:
       command: --default-authentication-plugin=mysql_native_password
       environment:
         MYSQL_ROOT_PASSWORD: password
-        MYSQL_DATABASE: test_db
-      # command:
-      #   - /bin/bash
-      #   - -c
-      #   - |
-      #     mysql -uroot -ppassword \
-      #     -e "CREATE USER 'inno@%' IDENIFIED BY 'inno';" \
-      #     -e "GRANT ALL privileges ON *.* TO 'inno'@'%' with grant option;" \
-      #     -e "reset master;"
       ports:
       - "3307:3306"
       volumes:
@@ -43,15 +25,6 @@ services:
       command: --default-authentication-plugin=mysql_native_password
       environment:
         MYSQL_ROOT_PASSWORD: password
-        MYSQL_DATABASE: test_db
-      # command:
-      #   - /bin/bash
-      #   - -c
-      #   - |
-      #     mysql -uroot -ppassword \
-      #     -e "CREATE USER 'inno@%' IDENIFIED BY 'inno';" \
-      #     -e "GRANT ALL privileges ON *.* TO 'inno'@'%' with grant option;" \
-      #     -e "reset master;"
       ports:
       - "3308:3306"
       volumes:
