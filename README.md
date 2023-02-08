@@ -6,6 +6,9 @@ To know detailed steps you can [check this blog - Setting Mysql cluster using do
 
 ![mysql cluster](proper-cluster.png)
 
+
+Below are few steps to run the files present , detailed explanation and steps are present in this blog [Setting Mysql cluster using docker](https://diptochakrabarty.medium.com/f0e405d03762)
+
 ## Steps to run
 
 - Start the docker containers
